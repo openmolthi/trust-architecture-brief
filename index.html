@@ -48,7 +48,7 @@ h1{font-size:clamp(2.7rem,6vw,6.2rem);line-height:.92;margin:0 0 18px;letter-spa
 .nav a{flex:0 0 auto;color:var(--text);border:1px solid var(--line);background:#10201c;border-radius:999px;padding:8px 11px;font-size:.9rem;text-decoration:none}
 .nav a:hover{background:rgba(102,217,194,.12)}
 .wrap{max-width:1200px;margin:0 auto;padding:32px 20px}
-section{margin:0 0 48px}
+section{margin:0 0 18px;scroll-margin-top:74px}
 .section-head{display:flex;justify-content:space-between;gap:20px;align-items:end;margin-bottom:16px}
 .kicker{color:var(--green);font-size:.78rem;text-transform:uppercase;font-weight:900;margin:0 0 7px}
 h2{font-size:clamp(1.55rem,2.8vw,2.55rem);line-height:1.05;margin:0;letter-spacing:0}
@@ -75,6 +75,16 @@ details[open] summary:after{content:"-"}
 .detail{border-top:1px solid var(--line);padding:15px 16px;color:var(--muted)}
 .detail p{margin:0 0 12px}
 .detail p:last-child{margin-bottom:0}
+.fold{background:transparent;border:0;border-radius:0;overflow:visible;scroll-margin-top:74px}
+.fold > summary.section-head{cursor:pointer;border:1px solid var(--line);border-radius:8px;background:rgba(17,29,26,.72);box-shadow:0 10px 30px rgba(0,0,0,.13);padding:16px;margin-bottom:0;align-items:center}
+.fold > summary.section-head:after{content:""}
+.fold[open] > summary.section-head{margin-bottom:16px}
+.fold-title{display:grid;gap:6px;min-width:0}
+.fold-title .section-deck{max-width:760px}
+.fold-toggle{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--line);border-radius:8px;background:#10201c;padding:7px 10px;color:var(--teal);font-size:.86rem;font-weight:850;white-space:nowrap}
+.fold-toggle::before{content:"+";display:inline-grid;place-items:center;width:18px;height:18px;border-radius:50%;background:var(--teal);color:#08100f;font-size:.9rem;line-height:1}
+.fold[open] .fold-toggle::before{content:"-"}
+.fold-body{padding:0}
 .collapse-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
 .flip-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
 .flip{min-height:238px;perspective:1200px}
@@ -109,6 +119,7 @@ details[open] summary:after{content:"-"}
   .hero-inner{grid-template-columns:1fr}
   .card,.card.wide,.card.half{grid-column:1/-1}
   .section-head{display:block}
+  .fold > summary.section-head{display:flex;align-items:flex-start}
   .collapse-grid,.flip-grid,.lens,.source-list{grid-template-columns:1fr}
 }
 @media(max-width:560px){
@@ -156,14 +167,17 @@ details[open] summary:after{content:"-"}
 
 <main class="wrap">
   <section id="thesis">
-    <div class="section-head">
-      <div>
+    <details class="fold">
+      <summary class="section-head">
+        <div class="fold-title">
         <p class="kicker">Core Thesis</p>
         <h2>The new project should not merely claim AI governance.</h2>
-      </div>
-      <p class="section-deck">The crowded claim is "we govern AI." The sharper claim is that the new project can make governance a property of the business object itself.</p>
-    </div>
-    <div class="grid">
+          <p class="section-deck">The crowded claim is "we govern AI." The sharper claim is that the new project can make governance a property of the business object itself.</p>
+        </div>
+        <span class="fold-toggle">Show thesis</span>
+      </summary>
+      <div class="fold-body">
+        <div class="grid">
       <article class="card wide">
         <h3>Recommended Positioning</h3>
         <p class="quote">The project introduces a verifiable trust architecture for AI-native operations: an execution fabric where every operational primitive carries identity, provenance, integrity, and governance metadata.</p>
@@ -188,19 +202,24 @@ details[open] summary:after{content:"-"}
         <h3>30 May Extension: Trust-As-Evidence</h3>
         <p>The discussion sharpened a second claim: when systems mediate B2B work through agents and a single human-in-loop, trust cannot rely on facial expression, verbal warmth, sentiment, or interpersonal charm. The service must replace social cues with operational cues: provenance, rationale, bounded authority, consequence preview, and accountability receipts.</p>
       </article>
-    </div>
+        </div>
+      </div>
+    </details>
   </section>
 
   <section id="paper">
-    <div class="section-head">
-      <div>
-        <p class="kicker">Alignment With The Trust Paper</p>
-        <h2>From psychological trust to engineered trust.</h2>
-      </div>
-      <p class="section-deck">The paper's useful bridge is that trust is not emotion. It is a decision to accept vulnerability under uncertainty. AI-native operations turn that into a design problem.</p>
-    </div>
-    <div class="collapse-grid">
-      <details open>
+    <details class="fold">
+      <summary class="section-head">
+        <div class="fold-title">
+          <p class="kicker">Alignment With The Trust Paper</p>
+          <h2>From psychological trust to engineered trust.</h2>
+          <p class="section-deck">The paper's useful bridge is that trust is not emotion. It is a decision to accept vulnerability under uncertainty. AI-native operations turn that into a design problem.</p>
+        </div>
+        <span class="fold-toggle">Show paper</span>
+      </summary>
+      <div class="fold-body">
+        <div class="collapse-grid">
+      <details>
         <summary>Ability: can the system do the work?</summary>
         <div class="detail">
           <p>In the paper's terms, ability is domain competence. In product terms, ability means the primitive declares what it is allowed and designed to do, under what inputs, with which dependencies, and with what known limits.</p>
@@ -235,18 +254,23 @@ details[open] summary:after{content:"-"}
           <p>The product implication: interface behavior becomes body language. Latency can feel like evasiveness, overly polished fluency can feel like overconfidence, and missing audit evidence can feel like institutional avoidance.</p>
         </div>
       </details>
-    </div>
+        </div>
+      </div>
+    </details>
   </section>
 
   <section id="architecture">
-    <div class="section-head">
-      <div>
-        <p class="kicker">Trust Architecture</p>
-        <h2>The operational primitive becomes the unit of trust.</h2>
-      </div>
-      <p class="section-deck">A primitive can be an app module, workflow step, rule, API connector, AI action, form, approval, transformation, or generated operational component.</p>
-    </div>
-    <div class="grid">
+    <details class="fold">
+      <summary class="section-head">
+        <div class="fold-title">
+          <p class="kicker">Trust Architecture</p>
+          <h2>The operational primitive becomes the unit of trust.</h2>
+          <p class="section-deck">A primitive can be an app module, workflow step, rule, API connector, AI action, form, approval, transformation, or generated operational component.</p>
+        </div>
+        <span class="fold-toggle">Show architecture</span>
+      </summary>
+      <div class="fold-body">
+        <div class="grid">
       <div class="diagram" aria-label="Trust architecture diagram">
         <svg viewBox="0 0 1180 470" role="img">
           <defs>
@@ -321,18 +345,23 @@ details[open] summary:after{content:"-"}
           <li>Generic AI safety claims that cloud and security vendors already own.</li>
         </ul>
       </article>
-    </div>
+        </div>
+      </div>
+    </details>
   </section>
 
   <section id="human-loop">
-    <div class="section-head">
-      <div>
-        <p class="kicker">Human-In-Loop Trust</p>
-        <h2>The organization owns the mandate. The person owns the judgment.</h2>
-      </div>
-      <p class="section-deck">In agentic B2B operations, the human-in-loop should not be reduced to a payment approver or rubber stamp. They are the point where evidence, authority, exception handling, and responsibility meet.</p>
-    </div>
-    <div class="grid">
+    <details class="fold">
+      <summary class="section-head">
+        <div class="fold-title">
+          <p class="kicker">Human-In-Loop Trust</p>
+          <h2>The organization owns the mandate. The person owns the judgment.</h2>
+          <p class="section-deck">In agentic B2B operations, the human-in-loop should not be reduced to a payment approver or rubber stamp. They are the point where evidence, authority, exception handling, and responsibility meet.</p>
+        </div>
+        <span class="fold-toggle">Show human loop</span>
+      </summary>
+      <div class="fold-body">
+        <div class="grid">
       <article class="card half">
         <h3>Layer 1: Business-to-business trust</h3>
         <p>Identity, contracts, SLAs, liability, payment terms, dispute windows, escalation paths, and audit expectations. This layer says who is allowed to transact and under which obligations.</p>
@@ -353,18 +382,23 @@ details[open] summary:after{content:"-"}
         <h3>Design shift</h3>
         <p>Replace "Approve this transaction?" with "Here is the evidence package, policy boundary, uncertainty, likely consequence, and your available decision rights." The human is not simply following orders; they are stewarding organizational judgment at the point of ambiguity.</p>
       </article>
-    </div>
+        </div>
+      </div>
+    </details>
   </section>
 
   <section id="low-cue">
-    <div class="section-head">
-      <div>
-        <p class="kicker">Low-Cue Service Design</p>
-        <h2>When facial, verbal, and sentiment cues are removed, trust moves into the interface.</h2>
-      </div>
-      <p class="section-deck">The examples discussed today point to a general UX rule: people use system behavior as a proxy for intent, competence, and accountability.</p>
-    </div>
-    <div class="grid">
+    <details class="fold">
+      <summary class="section-head">
+        <div class="fold-title">
+          <p class="kicker">Low-Cue Service Design</p>
+          <h2>When facial, verbal, and sentiment cues are removed, trust moves into the interface.</h2>
+          <p class="section-deck">The examples discussed today point to a general UX rule: people use system behavior as a proxy for intent, competence, and accountability.</p>
+        </div>
+        <span class="fold-toggle">Show low-cue UX</span>
+      </summary>
+      <div class="fold-body">
+        <div class="grid">
       <article class="card">
         <h3>Latency becomes sincerity</h3>
         <p>Video and chat delays disrupt conversational rhythm. A slow system can feel evasive or bureaucratic; an instant complex answer can feel fake. High-stakes workflows should show processing evidence, not only speed.</p>
@@ -393,18 +427,23 @@ details[open] summary:after{content:"-"}
         <h3>UX imperative</h3>
         <p class="quote">Trust-as-evidence, not trust-as-sentiment. Make response time feel alive, reasoning contextual, uncertainty visible, history inspectable, and consequences clear before asking a human to act.</p>
       </article>
-    </div>
+        </div>
+      </div>
+    </details>
   </section>
 
   <section id="tasks">
-    <div class="section-head">
-      <div>
-        <p class="kicker">Task Flip Cards</p>
-        <h2>Four enterprise questions the fabric must answer.</h2>
-      </div>
-      <p class="section-deck">Hover or tap a card. Each front-side question maps to the evidence the trust architecture has to provide.</p>
-    </div>
-    <div class="flip-grid">
+    <details class="fold">
+      <summary class="section-head">
+        <div class="fold-title">
+          <p class="kicker">Task Flip Cards</p>
+          <h2>Four enterprise questions the fabric must answer.</h2>
+          <p class="section-deck">Hover or tap a card. Each front-side question maps to the evidence the trust architecture has to provide.</p>
+        </div>
+        <span class="fold-toggle">Show proof tasks</span>
+      </summary>
+      <div class="fold-body">
+        <div class="flip-grid">
       <article class="flip" tabindex="0">
         <div class="flip-inner">
           <div class="face front"><div><b>Question</b><h3>What is running?</h3><p>Enterprise AI creates dynamic components. Runtime identity must be explicit.</p></div><span class="num">01</span></div>
@@ -429,18 +468,23 @@ details[open] summary:after{content:"-"}
           <div class="face back"><div><b>Evidence Needed</b><h3>Tamper signal</h3><p>Hash, signature, attestation, runtime validation, change event, evidence log, rollback or quarantine action.</p></div><span class="num">HASH</span></div>
         </div>
       </article>
-    </div>
+        </div>
+      </div>
+    </details>
   </section>
 
   <section id="market">
-    <div class="section-head">
-      <div>
-        <p class="kicker">Marketplace Scan</p>
-        <h2>Many vendors own pieces. Few own this exact intersection.</h2>
-      </div>
-      <p class="section-deck">The claim space is active. The defensible angle is to attach trust metadata to executable operational objects, not to repeat generic AI governance language.</p>
-    </div>
-    <table class="table">
+    <details class="fold">
+      <summary class="section-head">
+        <div class="fold-title">
+          <p class="kicker">Marketplace Scan</p>
+          <h2>Many vendors own pieces. Few own this exact intersection.</h2>
+          <p class="section-deck">The claim space is active. The defensible angle is to attach trust metadata to executable operational objects, not to repeat generic AI governance language.</p>
+        </div>
+        <span class="fold-toggle">Show marketplace</span>
+      </summary>
+      <div class="fold-body">
+        <table class="table">
       <thead><tr><th>Category</th><th>Representative players</th><th>What they claim</th><th>Project differentiation</th></tr></thead>
       <tbody>
         <tr><td>PKI / digital trust</td><td>DigiCert</td><td>Cryptographic identity, agent trust, model trust, content provenance.</td><td>They secure agents/models/content. This project can secure the business primitive that runs inside operational work.</td></tr>
@@ -450,18 +494,23 @@ details[open] summary:after{content:"-"}
         <tr><td>AI security / agent control</td><td>Protect AI, Lakera, Lasso, HiddenLayer, Credal-style tools</td><td>Guardrails, model security, data boundaries, agent permissions, risk detection.</td><td>They reduce AI risk. This project can connect AI risk controls to concrete enterprise workflow semantics.</td></tr>
         <tr><td>Low-code platforms</td><td>OutSystems, Mendix, Power Platform, ServiceNow App Engine</td><td>Rapid app creation, lifecycle governance, enterprise controls.</td><td>The opening is to make cryptographic trust and runtime evidence a headline architecture, not a back-office admin feature.</td></tr>
       </tbody>
-    </table>
+        </table>
+      </div>
+    </details>
   </section>
 
   <section id="fields">
-    <div class="section-head">
-      <div>
-        <p class="kicker">Deep Reasoning</p>
-        <h2>The fields that need to be addressed.</h2>
-      </div>
-      <p class="section-deck">These are the minimum conceptual fields I would pressure-test before turning the architecture into external messaging.</p>
-    </div>
-    <div class="lens">
+    <details class="fold">
+      <summary class="section-head">
+        <div class="fold-title">
+          <p class="kicker">Deep Reasoning</p>
+          <h2>The fields that need to be addressed.</h2>
+          <p class="section-deck">These are the minimum conceptual fields I would pressure-test before turning the architecture into external messaging.</p>
+        </div>
+        <span class="fold-toggle">Show fields</span>
+      </summary>
+      <div class="fold-body">
+        <div class="lens">
       <article><div class="mark">1</div><h3>Primitive ontology</h3><p>Define exactly what counts as an operational primitive. If it includes apps, rules, workflows, connectors, prompts, agents, approvals, and generated code, each needs a type model and evidence contract.</p></article>
       <article><div class="mark">2</div><h3>Identity model</h3><p>Clarify whether identity belongs to the primitive, human owner, AI agent, runtime service, tenant, or all of them. Enterprise trust collapses if identity is ambiguous.</p></article>
       <article><div class="mark">3</div><h3>Provenance depth</h3><p>Decide how far back the chain goes: template, AI prompt, generated artifact, human edit, dependency, imported API, test result, approval note. Too shallow is weak; too deep becomes noise.</p></article>
@@ -471,19 +520,24 @@ details[open] summary:after{content:"-"}
       <article><div class="mark">7</div><h3>Audit and replay</h3><p>Executives and regulators need reconstructability: what happened, why, under which policy, based on which data, and with which human or AI involvement.</p></article>
       <article><div class="mark">8</div><h3>Human legibility</h3><p>The trust signal must be visible without drowning users in metadata. The UI challenge is calibrated trust: enough evidence to guide action, not a security manual on every button.</p></article>
       <article><div class="mark">9</div><h3>Failure repair</h3><p>When an AI-assisted workflow fails, the system needs forensic separation: model error, data error, primitive drift, policy exception, approval failure, or integration fault.</p></article>
-    </div>
+        </div>
+      </div>
+    </details>
   </section>
 
   <section id="questions">
-    <div class="section-head">
-      <div>
-        <p class="kicker">Open Questions</p>
-        <h2>What Fredrik and Thi should pressure-test.</h2>
-      </div>
-      <p class="section-deck">These are the questions that turn a strong narrative into a product architecture customers can believe.</p>
-    </div>
-    <div class="collapse-grid">
-      <details open><summary>What is the smallest demonstrable trust primitive?</summary><div class="detail"><p>Pick one narrow object and make the claim real. Example: a workflow step that has a stable ID, source history, approver, policy scope, signature, runtime validation, and action log. A concrete primitive beats an abstract architecture.</p></div></details>
+    <details class="fold">
+      <summary class="section-head">
+        <div class="fold-title">
+          <p class="kicker">Open Questions</p>
+          <h2>What Fredrik and Thi should pressure-test.</h2>
+          <p class="section-deck">These are the questions that turn a strong narrative into a product architecture customers can believe.</p>
+        </div>
+        <span class="fold-toggle">Show questions</span>
+      </summary>
+      <div class="fold-body">
+        <div class="collapse-grid">
+      <details><summary>What is the smallest demonstrable trust primitive?</summary><div class="detail"><p>Pick one narrow object and make the claim real. Example: a workflow step that has a stable ID, source history, approver, policy scope, signature, runtime validation, and action log. A concrete primitive beats an abstract architecture.</p></div></details>
       <details><summary>Which evidence should be visible to business users?</summary><div class="detail"><p>The buyer wants proof, but the operator wants clarity. Decide which signals appear in the normal UI: approved, modified, unverified, generated, high-impact, human-reviewed, policy exception, or external dependency.</p></div></details>
       <details><summary>Where does cryptographic proof actually matter?</summary><div class="detail"><p>Cryptography is powerful but easy to overclaim. Use it where tamper evidence, chain of custody, external verification, or non-repudiation matter. Use simpler governance metadata where cryptography would add complexity without buyer value.</p></div></details>
       <details><summary>How does this integrate with existing enterprise controls?</summary><div class="detail"><p>The architecture should complement IAM, CI/CD, audit logs, GRC, SIEM, data catalogs, and cloud governance. It should not sound like it replaces the security estate; it adds trust semantics at the operational object layer.</p></div></details>
@@ -491,18 +545,23 @@ details[open] summary:after{content:"-"}
       <details><summary>What is the killer before/after?</summary><div class="detail"><p>Before: a workflow exists and people hope it is the approved version. After: the workflow can prove its identity, origin, approval state, integrity, runtime scope, and execution history at the moment it acts.</p></div></details>
       <details><summary>Which trust cues replace human presence?</summary><div class="detail"><p>When the service removes face, voice, tone, and sentiment, it must add operational equivalents: response rhythm, contextual specificity, evidence packets, decision rights, consequence preview, accountability receipt, and repair paths.</p></div></details>
       <details><summary>What does the human-in-loop need to feel protected?</summary><div class="detail"><p>The user needs to know their authority, the evidence basis, the uncertainty, the organizational policy, the escalation route, and the future audit record. Otherwise they either rubber-stamp the machine or refuse to rely on it.</p></div></details>
-    </div>
+        </div>
+      </div>
+    </details>
   </section>
 
   <section id="sources">
-    <div class="section-head">
-      <div>
-        <p class="kicker">Sources And Anchors</p>
-        <h2>Public references used for this discussion artifact.</h2>
-      </div>
-      <p class="section-deck">The supplied paper/document informed the trust framing. Public market references below are included so Fredrik can assess the competitive language around trust architecture and governed execution.</p>
-    </div>
-    <div class="source-list">
+    <details class="fold">
+      <summary class="section-head">
+        <div class="fold-title">
+          <p class="kicker">Sources And Anchors</p>
+          <h2>Public references used for this discussion artifact.</h2>
+          <p class="section-deck">The supplied paper/document informed the trust framing. Public market references below are included so Fredrik can assess the competitive language around trust architecture and governed execution.</p>
+        </div>
+        <span class="fold-toggle">Show sources</span>
+      </summary>
+      <div class="fold-body">
+        <div class="source-list">
       <div class="source"><b>Mayer, Davis, Schoorman trust model</b><span>Trust as willingness to accept vulnerability; ability, benevolence, integrity as core trustworthiness dimensions.</span></div>
       <div class="source"><b>Lee & See style calibrated automation trust</b><span>Relevant framing: avoid both misuse from overtrust and disuse from undertrust.</span></div>
       <div class="source"><b><a href="https://ncase.me/trust/">Nicky Case: The Evolution of Trust</a></b><span>Interactive game-theory anchor for repeated interaction, noise, forgiveness, and cooperation strategies.</span></div>
@@ -517,12 +576,32 @@ details[open] summary:after{content:"-"}
       <div class="source"><b><a href="https://www.alation.com/blog/metadata-ai-2026-trust-compliance-scale/">Alation metadata imperative for AI</a></b><span>Metadata, lineage, provenance, compliance, trust, and scale for AI systems.</span></div>
       <div class="source"><b><a href="https://datatracker.ietf.org/doc/draft-mw-spice-intent-chain/">IETF draft: cryptographically verifiable intent chain</a></b><span>Adjacent standards language around identity, content, and computational provenance for AI agent content.</span></div>
       <div class="source"><b>Thi/Fredrik discussion context</b><span>Low-code, Siemens transformation, human-touch value creation, human-in-loop judgment, low-cue trust, and trust-through-AI positioning discussed in the WhatsApp thread.</span></div>
-    </div>
+        </div>
+      </div>
+    </details>
   </section>
 </main>
 
 <footer class="footer">
   Trust Architecture Brief x public discussion artifact x prepared by Molthi x 27 May 2026 x evolved 30 May 2026
 </footer>
+<script>
+function openFoldFromHash(hash) {
+  const id = (hash || '').replace(/^#/, '');
+  if (!id) return;
+  const section = document.getElementById(id);
+  const fold = section ? section.querySelector(':scope > .fold') : null;
+  if (fold) fold.open = true;
+}
+
+document.querySelectorAll('.nav a[href^="#"]').forEach((link) => {
+  link.addEventListener('click', () => {
+    openFoldFromHash(link.getAttribute('href'));
+  });
+});
+
+window.addEventListener('hashchange', () => openFoldFromHash(window.location.hash));
+openFoldFromHash(window.location.hash);
+</script>
 </body>
 </html>
