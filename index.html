@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Trust Architecture Brief</title>
-<meta name="description" content="A public discussion brief on trust architecture and cryptographically verifiable operational systems for AI-native enterprise work.">
+<meta name="description" content="A public discussion brief on trust architecture, human-in-loop judgment, and verifiable operational systems for AI-native enterprise work.">
 <style>
 :root{
   --bg:#08100f;
@@ -124,16 +124,16 @@ details[open] summary:after{content:"-"}
     <div>
       <p class="eyebrow">Public discussion brief x Trust Architecture</p>
       <h1>Trust must become part of the executable fabric.</h1>
-      <p class="lead">A synthesis of the current discussion between Thi, Fredrik, and Molthi: how organizational trust theory maps onto AI-native enterprise systems, and why a new project can sharpen the claim around cryptographically verifiable operational primitives.</p>
-      <p class="hero-note">Prepared 27 May 2026 for review by Fredrik Angelo Lindqvist. This is a discussion artifact, not a product commitment or legal/security specification.</p>
+      <p class="lead">A synthesis of the current discussion between Thi, Fredrik, and Molthi: how organizational trust theory maps onto AI-native enterprise systems, why human-in-loop judgment matters, and how low-cue interfaces can earn trust through evidence rather than sentiment.</p>
+      <p class="hero-note">Prepared 27 May 2026 for review by Fredrik Angelo Lindqvist. Evolved 30 May 2026 with the human-in-loop and low-cue UX trust thread. This is a discussion artifact, not a product commitment or legal/security specification.</p>
     </div>
     <aside class="snapshot" aria-label="Brief snapshot">
       <h2>Argument Snapshot</h2>
       <div class="metric-grid">
         <div class="metric"><b>1</b><span>Core shift: from trusting AI outputs to trusting governed execution.</span></div>
         <div class="metric"><b>4</b><span>Primitive metadata fields: identity, provenance, integrity, governance.</span></div>
-        <div class="metric"><b>6</b><span>Trust fields that need product-level answers before the claim is mature.</span></div>
-        <div class="metric"><b>Many</b><span>Adjacent market claims, but few tied to low-code operational objects.</span></div>
+        <div class="metric"><b>3</b><span>Trust layers: B2B mandate, agent/process evidence, human judgment.</span></div>
+        <div class="metric"><b>Low cue</b><span>When face, voice, and sentiment vanish, interface behavior becomes body language.</span></div>
       </div>
     </aside>
   </div>
@@ -144,6 +144,8 @@ details[open] summary:after{content:"-"}
     <a href="#thesis">Thesis</a>
     <a href="#paper">Paper Alignment</a>
     <a href="#architecture">Architecture</a>
+    <a href="#human-loop">Human Loop</a>
+    <a href="#low-cue">Low-Cue UX</a>
     <a href="#tasks">Proof Tasks</a>
     <a href="#market">Marketplace</a>
     <a href="#fields">Fields To Address</a>
@@ -181,6 +183,10 @@ details[open] summary:after{content:"-"}
       <article class="card">
         <h3>Strategic Claim</h3>
         <p>Trust moves from a brand promise into a runtime property. That is defensible only if the product can surface evidence at the object, action, and audit layers.</p>
+      </article>
+      <article class="card full">
+        <h3>30 May Extension: Trust-As-Evidence</h3>
+        <p>The discussion sharpened a second claim: when systems mediate B2B work through agents and a single human-in-loop, trust cannot rely on facial expression, verbal warmth, sentiment, or interpersonal charm. The service must replace social cues with operational cues: provenance, rationale, bounded authority, consequence preview, and accountability receipts.</p>
       </article>
     </div>
   </section>
@@ -220,6 +226,13 @@ details[open] summary:after{content:"-"}
         <div class="detail">
           <p>The goal is not to make users trust AI more. The goal is to make the right level of trust obvious. Overtrust creates automation bias and invisible exposure. Undertrust wastes capability.</p>
           <p>The product implication: the system should expose confidence, limits, approval state, provenance, and exception status in the same operational surface where work happens.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Context cues: when social signals disappear.</summary>
+        <div class="detail">
+          <p>Human trust is often inferred from timing, tone, eye contact, hesitation, confidence, and conversational rhythm. Digital services remove or distort many of these signals, so users infer trust from substitute cues: speed, responsiveness, contextual fit, visible proof, control, reputation, recovery paths, and institutional accountability.</p>
+          <p>The product implication: interface behavior becomes body language. Latency can feel like evasiveness, overly polished fluency can feel like overconfidence, and missing audit evidence can feel like institutional avoidance.</p>
         </div>
       </details>
     </div>
@@ -307,6 +320,78 @@ details[open] summary:after{content:"-"}
           <li>Audit logs that explain after the fact but cannot prevent misuse.</li>
           <li>Generic AI safety claims that cloud and security vendors already own.</li>
         </ul>
+      </article>
+    </div>
+  </section>
+
+  <section id="human-loop">
+    <div class="section-head">
+      <div>
+        <p class="kicker">Human-In-Loop Trust</p>
+        <h2>The organization owns the mandate. The person owns the judgment.</h2>
+      </div>
+      <p class="section-deck">In agentic B2B operations, the human-in-loop should not be reduced to a payment approver or rubber stamp. They are the point where evidence, authority, exception handling, and responsibility meet.</p>
+    </div>
+    <div class="grid">
+      <article class="card half">
+        <h3>Layer 1: Business-to-business trust</h3>
+        <p>Identity, contracts, SLAs, liability, payment terms, dispute windows, escalation paths, and audit expectations. This layer says who is allowed to transact and under which obligations.</p>
+      </article>
+      <article class="card half">
+        <h3>Layer 2: Agent and process trust</h3>
+        <p>Evidence capture, provenance, confidence, policy checks, exception flags, source records, and replayable execution traces. This layer says what the system saw and why it proposed an action.</p>
+      </article>
+      <article class="card half">
+        <h3>Layer 3: Individual judgment trust</h3>
+        <p>Role clarity, decision rights, competence, incentives, psychological safety, and personal accountability. This layer says whether the human can make a good decision without being trapped by the machine or abandoned by the organization.</p>
+      </article>
+      <article class="card half">
+        <h3>Product stance</h3>
+        <p class="quote">Do not ask the human to trust the system. Let the system help the human become trustworthy.</p>
+      </article>
+      <article class="card full">
+        <h3>Design shift</h3>
+        <p>Replace "Approve this transaction?" with "Here is the evidence package, policy boundary, uncertainty, likely consequence, and your available decision rights." The human is not simply following orders; they are stewarding organizational judgment at the point of ambiguity.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="low-cue">
+    <div class="section-head">
+      <div>
+        <p class="kicker">Low-Cue Service Design</p>
+        <h2>When facial, verbal, and sentiment cues are removed, trust moves into the interface.</h2>
+      </div>
+      <p class="section-deck">The examples discussed today point to a general UX rule: people use system behavior as a proxy for intent, competence, and accountability.</p>
+    </div>
+    <div class="grid">
+      <article class="card">
+        <h3>Latency becomes sincerity</h3>
+        <p>Video and chat delays disrupt conversational rhythm. A slow system can feel evasive or bureaucratic; an instant complex answer can feel fake. High-stakes workflows should show processing evidence, not only speed.</p>
+      </article>
+      <article class="card">
+        <h3>Contingency beats politeness</h3>
+        <p>Users trust responses that clearly reflect their actual case, prior action, and constraint. Generic warmth is weaker than concrete evidence that the service understood the situation.</p>
+      </article>
+      <article class="card">
+        <h3>Control is a trust signal</h3>
+        <p>Approve, reject, escalate, ask for proof, defer, simulate consequence, or request a second review. Meaningful control reduces automation aversion and helps calibrate reliance.</p>
+      </article>
+      <article class="card">
+        <h3>History replaces familiarity</h3>
+        <p>In marketplaces and B2B operations, reputation, prior exceptions, service history, delivery quality, and dispute outcomes substitute for personal familiarity.</p>
+      </article>
+      <article class="card">
+        <h3>Trust marks must be literal</h3>
+        <p>Security icons, badges, and trust labels can be overread. The UI should say exactly what is guaranteed: connection security, identity verification, policy approval, tamper evidence, or source provenance.</p>
+      </article>
+      <article class="card">
+        <h3>Recovery is proof of integrity</h3>
+        <p>Trust is not only created before failure. Escalation paths, rollback, quarantine, dispute handling, and audit receipts show whether the service can repair trust after ambiguity or error.</p>
+      </article>
+      <article class="card full">
+        <h3>UX imperative</h3>
+        <p class="quote">Trust-as-evidence, not trust-as-sentiment. Make response time feel alive, reasoning contextual, uncertainty visible, history inspectable, and consequences clear before asking a human to act.</p>
       </article>
     </div>
   </section>
@@ -404,6 +489,8 @@ details[open] summary:after{content:"-"}
       <details><summary>How does this integrate with existing enterprise controls?</summary><div class="detail"><p>The architecture should complement IAM, CI/CD, audit logs, GRC, SIEM, data catalogs, and cloud governance. It should not sound like it replaces the security estate; it adds trust semantics at the operational object layer.</p></div></details>
       <details><summary>What is the buyer pain?</summary><div class="detail"><p>The pain is not "AI is scary." The pain is that AI-native systems make operational composition dynamic, distributed, and harder to prove. Regulated and complex enterprises need evidence before they can scale AI-assisted execution.</p></div></details>
       <details><summary>What is the killer before/after?</summary><div class="detail"><p>Before: a workflow exists and people hope it is the approved version. After: the workflow can prove its identity, origin, approval state, integrity, runtime scope, and execution history at the moment it acts.</p></div></details>
+      <details><summary>Which trust cues replace human presence?</summary><div class="detail"><p>When the service removes face, voice, tone, and sentiment, it must add operational equivalents: response rhythm, contextual specificity, evidence packets, decision rights, consequence preview, accountability receipt, and repair paths.</p></div></details>
+      <details><summary>What does the human-in-loop need to feel protected?</summary><div class="detail"><p>The user needs to know their authority, the evidence basis, the uncertainty, the organizational policy, the escalation route, and the future audit record. Otherwise they either rubber-stamp the machine or refuse to rely on it.</p></div></details>
     </div>
   </section>
 
@@ -418,18 +505,24 @@ details[open] summary:after{content:"-"}
     <div class="source-list">
       <div class="source"><b>Mayer, Davis, Schoorman trust model</b><span>Trust as willingness to accept vulnerability; ability, benevolence, integrity as core trustworthiness dimensions.</span></div>
       <div class="source"><b>Lee & See style calibrated automation trust</b><span>Relevant framing: avoid both misuse from overtrust and disuse from undertrust.</span></div>
+      <div class="source"><b><a href="https://ncase.me/trust/">Nicky Case: The Evolution of Trust</a></b><span>Interactive game-theory anchor for repeated interaction, noise, forgiveness, and cooperation strategies.</span></div>
+      <div class="source"><b><a href="https://pubmed.ncbi.nlm.nih.gov/17638454/">Colquitt, Scott, LePine trust meta-analysis</a></b><span>Organizational trustworthiness dimensions predict risk taking and work outcomes across many samples.</span></div>
+      <div class="source"><b><a href="https://pubmed.ncbi.nlm.nih.gov/34748361/">Zoom delay and conversation timing study</a></b><span>Remote video latency disrupts normal conversational rhythm, supporting the UX claim that timing becomes a trust cue.</span></div>
+      <div class="source"><b><a href="https://academic.oup.com/jcmc/article/23/4/201/5033037">Response latency and conversational contingency</a></b><span>Computer-mediated response timing and responsiveness shape perceptions of expertise, dependability, trust, and attraction.</span></div>
+      <div class="source"><b><a href="https://link.springer.com/article/10.1007/s12599-022-00755-x">Chatbot response time and trust</a></b><span>Chatbot response speed has competing effects; the right timing depends on task complexity and expectations.</span></div>
+      <div class="source"><b><a href="https://link.springer.com/article/10.1007/s00146-023-01649-6">Algorithm aversion and control</a></b><span>User understanding and perceived control can reduce algorithm aversion and improve appropriate reliance.</span></div>
       <div class="source"><b><a href="https://www.globenewswire.com/news-release/2026/04/30/3284921/0/en/DigiCert-Introduces-New-AI-Trust-Architecture-for-Securing-AI-Agents-Models-and-Content.html">DigiCert AI Trust Architecture</a></b><span>Cryptographic verification across agents, models, and content; agent identity, authorization, audit, model signing, and content provenance.</span></div>
       <div class="source"><b><a href="https://blogs.oracle.com/ai-and-datascience/runtime-governance-enterprise-agentic-ai">Oracle: From Model Safety to Runtime Governance</a></b><span>Governed execution model; identity, approval state, policy, replayable decisions, and runtime action control.</span></div>
       <div class="source"><b><a href="https://www.dynatrace.com/news/blog/the-rise-of-agentic-ai-part-7-introducing-data-governance-and-audit-trails-for-ai-services/">Dynatrace AI governance and audit trails</a></b><span>AI observability, lineage, retention controls, evidentiary records, and compliance support.</span></div>
       <div class="source"><b><a href="https://www.alation.com/blog/metadata-ai-2026-trust-compliance-scale/">Alation metadata imperative for AI</a></b><span>Metadata, lineage, provenance, compliance, trust, and scale for AI systems.</span></div>
       <div class="source"><b><a href="https://datatracker.ietf.org/doc/draft-mw-spice-intent-chain/">IETF draft: cryptographically verifiable intent chain</a></b><span>Adjacent standards language around identity, content, and computational provenance for AI agent content.</span></div>
-      <div class="source"><b>Thi/Fredrik discussion context</b><span>Low-code, Siemens transformation, human-touch value creation, and trust-through-AI positioning discussed in the WhatsApp thread.</span></div>
+      <div class="source"><b>Thi/Fredrik discussion context</b><span>Low-code, Siemens transformation, human-touch value creation, human-in-loop judgment, low-cue trust, and trust-through-AI positioning discussed in the WhatsApp thread.</span></div>
     </div>
   </section>
 </main>
 
 <footer class="footer">
-  Trust Architecture Brief x public discussion artifact x prepared by Molthi x 27 May 2026
+  Trust Architecture Brief x public discussion artifact x prepared by Molthi x 27 May 2026 x evolved 30 May 2026
 </footer>
 </body>
 </html>
