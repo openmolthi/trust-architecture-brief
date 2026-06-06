@@ -159,7 +159,7 @@ details[open] summary:after{content:"-"}
       <div class="metric-grid">
         <div class="metric"><b>1</b><span>Core shift: from trusting AI outputs to trusting governed execution.</span></div>
         <div class="metric"><b>4</b><span>Primitive metadata fields: identity, provenance, integrity, governance.</span></div>
-        <div class="metric"><b>3</b><span>Trust layers: B2B mandate, agent/process evidence, human judgment.</span></div>
+        <div class="metric"><b>A&lt;-&gt;A</b><span>Agent-to-agent trust needs identity, mandate, scope, and revocation.</span></div>
         <div class="metric"><b>Low cue</b><span>When face, voice, and sentiment vanish, interface behavior becomes body language.</span></div>
       </div>
     </aside>
@@ -171,6 +171,7 @@ details[open] summary:after{content:"-"}
     <a href="#thesis">Thesis</a>
     <a href="#paper">Paper Alignment</a>
     <a href="#architecture">Architecture</a>
+    <a href="#agent-agent">Agent Trust</a>
     <a href="#human-loop">Human Loop</a>
     <a href="#economics">Trust Economics</a>
     <a href="#low-cue">Low-Cue UX</a>
@@ -361,6 +362,59 @@ details[open] summary:after{content:"-"}
           <li>Audit logs that explain after the fact but cannot prevent misuse.</li>
           <li>Generic AI safety claims that cloud and security vendors already own.</li>
         </ul>
+      </article>
+        </div>
+      </div>
+    </details>
+  </section>
+
+  <section id="agent-agent">
+    <details class="fold">
+      <summary class="section-head">
+        <div class="fold-title">
+          <p class="kicker">Agent-To-Agent Trust</p>
+          <h2>Agents will need to verify each other before they cooperate.</h2>
+          <p class="section-deck">The next trust problem is not only human-to-AI reliance. It is whether one AI-mediated actor can safely accept work, evidence, delegation, or authority from another.</p>
+        </div>
+        <span class="fold-toggle">Show agent trust</span>
+      </summary>
+      <div class="fold-body">
+        <div class="grid">
+      <article class="card half">
+        <h3>Why this matters</h3>
+        <p>When agents negotiate, schedule, procure, approve, compose code, trigger workflows, or hand tasks to other agents, trust becomes machine-readable coordination. The system cannot rely on social context or human familiarity at every hop.</p>
+      </article>
+      <article class="card half">
+        <h3>Core question</h3>
+        <p class="quote">Before Agent A accepts Agent B's request, can it prove who B represents, what B is allowed to do, whether B's evidence is intact, and how B can be stopped?</p>
+      </article>
+      <article class="card">
+        <h3>Identity</h3>
+        <p>Each agent needs a verifiable identity: owner, tenant, role, model or runtime class, version, environment, and active certificate or credential state.</p>
+      </article>
+      <article class="card">
+        <h3>Mandate</h3>
+        <p>The agent must carry the business purpose it is acting under: the human, team, contract, policy, or workflow that delegated authority to it.</p>
+      </article>
+      <article class="card">
+        <h3>Scope</h3>
+        <p>Agent permissions should be bounded by task, data, tool, value limit, duration, geography, counterparty, and escalation condition.</p>
+      </article>
+      <article class="card">
+        <h3>Provenance</h3>
+        <p>Requests between agents need evidence chains: source data, prior decisions, generated artifacts, transformations, approvals, and unresolved uncertainty.</p>
+      </article>
+      <article class="card">
+        <h3>Reputation</h3>
+        <p>Agent trust can become empirical: prior reliability, exception rate, policy violations, dispute outcomes, rollback frequency, and human override history.</p>
+      </article>
+      <article class="card">
+        <h3>Revocation</h3>
+        <p>Trust must be interruptible. An agent needs expiry, kill switch, credential rotation, quarantine behavior, and clear blast-radius containment.</p>
+      </article>
+      <article class="card full">
+        <h3>Architecture implication</h3>
+        <p>Agent-to-agent trust turns governance metadata into an operating protocol. Identity, provenance, integrity, governance, economics, and human-loop evidence should be exchanged as a trust packet before agents perform consequential work for each other.</p>
       </article>
         </div>
       </div>
@@ -577,7 +631,8 @@ details[open] summary:after{content:"-"}
       <article><div class="mark">6</div><h3>Runtime enforcement</h3><p>Evidence alone is not enough. The architecture should say what happens when a primitive lacks approval, drifts from its signature, exceeds mandate, or calls an unapproved system.</p></article>
       <article><div class="mark">7</div><h3>Audit and replay</h3><p>Executives and regulators need reconstructability: what happened, why, under which policy, based on which data, and with which human or AI involvement.</p></article>
       <article><div class="mark">8</div><h3>Human legibility</h3><p>The trust signal must be visible without drowning users in metadata. The UI challenge is calibrated trust: enough evidence to guide action, not a security manual on every button.</p></article>
-      <article><div class="mark">9</div><h3>Failure repair</h3><p>When an AI-assisted workflow fails, the system needs forensic separation: model error, data error, primitive drift, policy exception, approval failure, or integration fault.</p></article>
+      <article><div class="mark">9</div><h3>Agent-to-agent protocol</h3><p>Define the minimum trust packet exchanged between agents before consequential work: identity, mandate, scope, provenance, confidence, policy state, and revocation path.</p></article>
+      <article><div class="mark">10</div><h3>Failure repair</h3><p>When an AI-assisted workflow fails, the system needs forensic separation: model error, data error, primitive drift, policy exception, approval failure, agent delegation failure, or integration fault.</p></article>
         </div>
       </div>
     </details>
@@ -603,6 +658,7 @@ details[open] summary:after{content:"-"}
       <details><summary>What is the killer before/after?</summary><div class="detail"><p>Before: a workflow exists and people hope it is the approved version. After: the workflow can prove its identity, origin, approval state, integrity, runtime scope, and execution history at the moment it acts.</p></div></details>
       <details><summary>Which trust cues replace human presence?</summary><div class="detail"><p>When the service removes face, voice, tone, and sentiment, it must add operational equivalents: response rhythm, contextual specificity, evidence packets, decision rights, consequence preview, accountability receipt, and repair paths.</p></div></details>
       <details><summary>What does the human-in-loop need to feel protected?</summary><div class="detail"><p>The user needs to know their authority, the evidence basis, the uncertainty, the organizational policy, the escalation route, and the future audit record. Otherwise they either rubber-stamp the machine or refuse to rely on it.</p></div></details>
+      <details><summary>What should one agent require before trusting another?</summary><div class="detail"><p>At minimum: verified agent identity, represented mandate, delegated authority, permission scope, evidence provenance, runtime integrity, reliability history, expiry, revocation path, and escalation owner.</p></div></details>
         </div>
       </div>
     </details>
@@ -633,7 +689,7 @@ details[open] summary:after{content:"-"}
       <div class="source"><b><a href="https://www.dynatrace.com/news/blog/the-rise-of-agentic-ai-part-7-introducing-data-governance-and-audit-trails-for-ai-services/">Dynatrace AI governance and audit trails</a></b><span>AI observability, lineage, retention controls, evidentiary records, and compliance support.</span></div>
       <div class="source"><b><a href="https://www.alation.com/blog/metadata-ai-2026-trust-compliance-scale/">Alation metadata imperative for AI</a></b><span>Metadata, lineage, provenance, compliance, trust, and scale for AI systems.</span></div>
       <div class="source"><b><a href="https://datatracker.ietf.org/doc/draft-mw-spice-intent-chain/">IETF draft: cryptographically verifiable intent chain</a></b><span>Adjacent standards language around identity, content, and computational provenance for AI agent content.</span></div>
-      <div class="source"><b>Thi/Fredrik discussion context</b><span>Low-code, Siemens transformation, human-touch value creation, human-in-loop judgment, low-cue trust, organizational politics, cost of trust, ROI of trust, trust premiums, and trust-through-AI positioning discussed in the WhatsApp thread.</span></div>
+      <div class="source"><b>Thi/Fredrik discussion context</b><span>Low-code, Siemens transformation, human-touch value creation, human-in-loop judgment, low-cue trust, organizational politics, agent-to-agent trust, cost of trust, ROI of trust, trust premiums, and trust-through-AI positioning discussed in the WhatsApp thread.</span></div>
         </div>
       </div>
     </details>
